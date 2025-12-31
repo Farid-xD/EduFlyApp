@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/dark_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- SUCCESS HEADER -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/gradient_primary"
+                android:padding="24dp"
+                android:gravity="center">
+
+                <TextView
+                    android:text="🎉"
+                    android:textSize="56dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="Course Generated!"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp" />
+
+                <TextView
+                    android:text="AI has created your comprehensive course"
+                    android:textSize="14sp"
+                    android:textColor="#E0E7FF"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- COURSE INFO -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/card_bg"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/tvPreviewTitle"
+                    android:text="Course Title"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/tvPreviewInstructor"
+                    android:text="By Instructor"
+                    android:textSize="14sp"
+                    android:textColor="@color/primary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp">
+
+                    <TextView
+                        android:id="@+id/tvPreviewDuration"
+                        android:text="⏱️ 8 weeks"
+                        android:textSize="13sp"
+                        android:textColor="@color/text_secondary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp" />
+
+                    <TextView
+                        android:id="@+id/tvPreviewDifficulty"
+                        android:text="📊 Beginner"
+                        android:textSize="13sp"
+                        android:textColor="@color/text_secondary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp" />
+
+                    <TextView
+                        android:id="@+id/tvPreviewCategory"
+                        android:text="📚 Programming"
+                        android:textSize="13sp"
+                        android:textColor="@color/text_secondary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- COURSE OVERVIEW -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardOverview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/card_bg"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:text="📖 Course Overview"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:id="@+id/tvOverviewContent"
+                    android:text="Course overview will appear here..."
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    android:lineSpacingExtra="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- MODULES -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardModules"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/card_bg"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:text="📚 Course Modules"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:id="@+id/tvModulesContent"
+                    android:text="Modules will appear here..."
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    android:lineSpacingExtra="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- QUIZ QUESTIONS -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardQuiz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/card_bg"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:text="❓ Quiz Questions"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:id="@+id/tvQuizContent"
+                    android:text="Quiz questions will appear here..."
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    android:lineSpacingExtra="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- MCQs -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardMCQs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/card_bg"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:text="✅ Multiple Choice Questions"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:id="@+id/tvMCQsContent"
+                    android:text="MCQs will appear here..."
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    android:lineSpacingExtra="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- VIDEO RECOMMENDATIONS -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardVideos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/card_bg"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:text="🎥 Recommended Videos"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:id="@+id/tvVideosContent"
+                    android:text="Video recommendations will appear here..."
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    android:lineSpacingExtra="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>

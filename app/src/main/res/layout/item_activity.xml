@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activityContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginBottom="24dp">
+
+    <!-- This is a template for activity items -->
+    <LinearLayout
+        android:id="@+id/activityItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/card_background"
+        android:padding="16dp"
+        android:layout_marginBottom="12dp">
+
+        <TextView
+            android:id="@+id/activityEmoji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📚"
+            android:textSize="20sp"
+            android:textColor="@color/white" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="12dp">
+
+            <TextView
+                android:id="@+id/activityTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Activity Title"
+                android:textSize="16sp"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/activitySubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Activity subtitle"
+                android:textSize="14sp"
+                android:textColor="@color/light_gray"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/activityTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2h ago"
+            android:textSize="12sp"
+            android:textColor="@color/light_gray" />
+    </LinearLayout>
+
+</LinearLayout>

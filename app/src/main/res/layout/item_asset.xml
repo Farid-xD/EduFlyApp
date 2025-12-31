@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/card_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Asset Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Asset Icon -->
+            <ImageView
+                android:id="@+id/assetIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_file_document"
+                app:tint="@color/purple" />
+
+            <!-- Asset Info -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/assetName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Document.pdf"
+                    android:textColor="@color/gray_800"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+
+                <TextView
+                    android:id="@+id/assetType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PDF Document"
+                    android:textColor="@color/gray_500"
+                    android:textSize="12sp"
+                    android:layout_marginTop="2dp" />
+
+                <TextView
+                    android:id="@+id/assetSize"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2.4 MB"
+                    android:textColor="@color/gray_500"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- More Options -->
+            <ImageView
+                android:id="@+id/moreOptions"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_more_vert"
+                app:tint="@color/gray_500" />
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="12dp"
+            android:background="@color/gray_light" />
+
+        <!-- Asset Details -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Upload Date -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Uploaded"
+                    android:textColor="@color/gray_500"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/uploadDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="2 days ago"
+                    android:textColor="@color/gray_800"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Download Count -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Downloads"
+                    android:textColor="@color/gray_500"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/downloadCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="24"
+                    android:textColor="@color/gray_800"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Action Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <!-- View Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/viewButton"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="View"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                app:strokeColor="@color/purple"
+                app:strokeWidth="1dp"
+                app:cornerRadius="8dp" />
+
+            <!-- Download Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/downloadButton"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="Download"
+                style="@style/Widget.MaterialComponents.Button"
+                app:backgroundTint="@color/purple"
+                app:cornerRadius="8dp" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

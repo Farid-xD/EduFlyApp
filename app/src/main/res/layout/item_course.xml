@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/card_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Course Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Course Icon/Image -->
+            <ImageView
+                android:id="@+id/courseImage"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_courses"
+
+                android:padding="6dp"
+                android:scaleType="centerCrop"/>
+
+            <!-- Course Info -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/courseTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Android Development"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+
+                <TextView
+                    android:id="@+id/courseInstructor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Sir Ahmad"
+                    android:textColor="@color/gray_500"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/courseCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Programming"
+                    android:textColor="@color/purple"
+                    android:textSize="12sp"
+                    android:background="@drawable/category_chip"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="2dp" />
+            </LinearLayout>
+
+            <!-- More Options -->
+            <ImageView
+                android:id="@+id/moreOptions"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_more_vert"
+                app:tint="@color/gray_500" />
+        </LinearLayout>
+
+        <!-- Course Description -->
+        <TextView
+            android:id="@+id/courseDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Learn Android development from scratch with this comprehensive course covering all the basics and advanced topics."
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:maxLines="2"
+            android:ellipsize="end" />
+
+        <!-- Progress Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical">
+
+            <!-- Progress Info -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Progress"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+
+                <TextView
+                    android:id="@+id/duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="8 hours"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:layout_marginRight="10dp"/>
+                <TextView
+                    android:id="@+id/progressText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="60%"
+                    android:textColor="@color/purple"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <!-- Progress Bar - FIXED -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_marginTop="4dp"
+                android:progress="60"
+                android:progressTint="@color/purple"
+                android:progressBackgroundTint="@color/gray_light"
+                android:max="100" />
+        </LinearLayout>
+        <!-- Course Stats -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <!-- Lessons -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_play_circle"
+                    app:tint="@color/gray_500" />
+
+                <TextView
+                    android:id="@+id/lessonsCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="24 Lessons"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Duration -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_access_time"
+                    app:tint="@color/gray_500" />
+
+                <TextView
+                    android:id="@+id/tvProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="60%"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <!-- Students -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_people"
+                    app:tint="@color/gray_500" />
+
+                <TextView
+                    android:id="@+id/studentsCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="120 Students"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Action Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <!-- Continue Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/continueButton"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="Continue"
+                style="@style/Widget.MaterialComponents.Button"
+                app:backgroundTint="@color/purple"
+                app:cornerRadius="8dp" />
+
+            <!-- Share Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/shareButton"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Share"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                app:strokeColor="@color/purple"
+                app:strokeWidth="1dp"
+                app:cornerRadius="8dp" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

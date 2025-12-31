@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors -->
+    <color name="primary">#6366F1</color>
+    <color name="primary_dark">#4F46E5</color>
+    <color name="primary_light">#C7D2FE</color>
+    <color name="accent">#10B981</color>
+
+    <!-- For compatibility with old code -->
+    <color name="secondary">#10B981</color>
+    <color name="secondary_dark">#059669</color>
+    <color name="purple">#6366F1</color> <!-- Same as primary -->
+    <color name="purple_dark">#4F46E5</color>
+    <color name="purple_light">#C7D2FE</color>
+
+    <!-- Background Colors -->
+    <color name="background">#F8FAFC</color>
+    <color name="dark_background">#0F172A</color>
+    <color name="card_background">#1E293B</color>
+    <color name="card_bg">#1E293B</color> <!-- Changed from white to dark -->
+    <color name="card_bg_light">#2D3748</color>
+    <color name="surface">#1E293B</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#94A3B8</color>
+    <color name="text_tertiary">#64748B</color>
+    <color name="light_gray">#94A3B8</color>
+    <color name="on_surface">#FFFFFF</color>
+
+    <!-- Grayscale -->
+    <color name="gray_50">#FAFAFA</color>
+    <color name="gray_100">#F5F5F5</color>
+    <color name="gray_200">#EEEEEE</color>
+    <color name="gray_300">#E0E0E0</color>
+    <color name="gray_400">#BDBDBD</color>
+    <color name="gray_500">#9E9E9E</color>
+    <color name="gray_600">#475569</color>
+    <color name="gray_700">#616161</color>
+    <color name="gray_800">#424242</color>
+    <color name="gray_900">#212121</color>
+
+    <!-- Light variants for light theme -->
+    <color name="gray_light">#F5F5F5</color>
+    <color name="gray_medium">#9E9E9E</color>
+    <color name="border_light">#E0E0E0</color>
+    <color name="border_dark">#BDBDBD</color>
+
+    <!-- Status Colors -->
+    <color name="error">#EF4444</color>
+    <color name="success">#10B981</color>
+    <color name="warning">#F59E0B</color>
+    <color name="info">#3B82F6</color>
+
+    <!-- For compatibility -->
+    <color name="error_color">#EF4444</color>
+    <color name="success_color">#10B981</color>
+    <color name="warning_color">#F59E0B</color>
+    <color name="info_color">#3B82F6</color>
+
+    <!-- Basic Colors -->
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+
+    <!-- Course Colors -->
+    <color name="course_android">#6366F1</color>
+    <color name="course_web">#3B82F6</color>
+    <color name="course_ai">#10B981</color>
+    <color name="course_data">#8B5CF6</color>
+    <color name="course_design">#EC4899</color>
+    <color name="course_programming">#06B6D4</color>
+
+    <!-- UI Elements -->
+    <color name="chip_background_selector">#334155</color>
+    <color name="divider">#2D3748</color>
+
+    <!-- Old compatibility - keep for existing code -->
+    <color name="primary_color">#6366F1</color>
+    <color name="secondary_color">#10B981</color>
+</resources>
