@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         setupSidebarNavigation()
         setupWelcomeText()
         setupObservers()
+        setupLogoutButton()
 
         // Add sample data if database is empty
         addSampleDataIfNeeded()
@@ -100,6 +101,40 @@ class MainActivity : AppCompatActivity() {
             drawerLayout.closeDrawer(findViewById(R.id.sidebar))
             openQuickCreateActivity()
         }
+    }
+
+    private fun setupLogoutButton() {
+        findViewById<CardView>(R.id.btnLogout).setOnClickListener {
+            showLogoutConfirmationDialog()
+        }
+    }
+
+    private fun showLogoutConfirmationDialog() {
+        androidx.appcompat.app.AlertDialog.Builder(this)
+            .setTitle("Logout")
+            .setMessage("Are you sure you want to logout?")
+            .setIcon(android.R.drawable.ic_dialog_alert)
+            .setPositiveButton("Yes") { dialog, _ ->
+                performLogout()
+                dialog.dismiss()
+            }
+            .setNegativeButton("No") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
+    }
+
+    private fun performLogout() {
+        // Clear login session using the static method from LoginActivity
+        LoginActivity.clearLoginSession(this)
+
+        // Navigate back to LoginActivity
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        finish()
+
+        Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
     }
 
     private fun setupWelcomeText() {

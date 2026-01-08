@@ -1,6 +1,8 @@
 package com.example.proj.activities
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.widget.EditText
@@ -24,13 +26,31 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var togglePassword: ImageView
     private lateinit var forgotPasswordText: TextView
 
-    // Create ViewModel with factory - THIS IS THE FIX!
+    // SharedPreferences
+    private lateinit var sharedPreferences: SharedPreferences
+    private val PREFS_NAME = "LoginPrefs"
+    private val KEY_EMAIL = "email"
+    private val KEY_PASSWORD = "password"
+    private val KEY_IS_LOGGED_IN = "isLoggedIn"
+
+    // Create ViewModel with factory
     private val userViewModel: UserViewModel by viewModels {
         UserViewModelFactory(application)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Initialize SharedPreferences
+        sharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+
+        // Check if user is already logged in
+        if (isUserLoggedIn()) {
+            Log.d("LoginActivity", "User already logged in, navigating to MainActivity")
+            navigateToMainActivity()
+            return
+        }
+
         setContentView(R.layout.activity_login)
 
         Log.d("LoginActivity", "LoginActivity created")
@@ -51,16 +71,24 @@ class LoginActivity : AppCompatActivity() {
             return
         }
 
+        // Load saved credentials (optional - for convenience)
+        loadSavedCredentials()
+
         // Observe login results
         userViewModel.loginResult.observe(this, Observer { result ->
             result?.let { (success, message) ->
                 Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 
                 if (success) {
-                    Log.d("LoginActivity", "Login successful, opening MainActivity")
+                    Log.d("LoginActivity", "Login successful, saving credentials")
 
-                    // Database updates are happening simultaneously in the ViewModel
-                    // Now navigate to MainActivity
+                    // Save login credentials
+                    saveLoginCredentials(
+                        emailEditText.text.toString().trim(),
+                        passwordEditText.text.toString().trim()
+                    )
+
+                    // Navigate to MainActivity
                     navigateToMainActivity()
                 }
             }
@@ -68,7 +96,6 @@ class LoginActivity : AppCompatActivity() {
 
         // Observe loading state
         userViewModel.isLoading.observe(this, Observer { isLoading ->
-            // You can show/hide progress bar here
             loginButton.isEnabled = !isLoading
         })
 
@@ -112,11 +139,32 @@ class LoginActivity : AppCompatActivity() {
             togglePasswordVisibility()
         }
 
-        // Auto-fill for testing (can be removed in production)
-        emailEditText.setText("admin@example.com")
-        passwordEditText.setText("admin123")
-
         Log.d("LoginActivity", "LoginActivity setup complete")
+    }
+
+    private fun isUserLoggedIn(): Boolean {
+        return sharedPreferences.getBoolean(KEY_IS_LOGGED_IN, false)
+    }
+
+    private fun saveLoginCredentials(email: String, password: String) {
+        val editor = sharedPreferences.edit()
+        editor.putString(KEY_EMAIL, email)
+        editor.putString(KEY_PASSWORD, password)
+        editor.putBoolean(KEY_IS_LOGGED_IN, true)
+        editor.apply()
+        Log.d("LoginActivity", "Login credentials saved")
+    }
+
+    private fun loadSavedCredentials() {
+        val savedEmail = sharedPreferences.getString(KEY_EMAIL, "")
+        val savedPassword = sharedPreferences.getString(KEY_PASSWORD, "")
+
+        if (!savedEmail.isNullOrEmpty()) {
+            emailEditText.setText(savedEmail)
+        }
+        if (!savedPassword.isNullOrEmpty()) {
+            passwordEditText.setText(savedPassword)
+        }
     }
 
     private fun navigateToMainActivity() {
@@ -124,7 +172,7 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
 
             // Pass user email to MainActivity
-            val email = emailEditText.text.toString().trim()
+            val email = sharedPreferences.getString(KEY_EMAIL, "") ?: emailEditText.text.toString().trim()
             intent.putExtra("user_email", email)
 
             // Add flags to clear back stack
@@ -166,19 +214,16 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun togglePasswordVisibility() {
-        val isPasswordVisible = passwordEditText.inputType == 145 // TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+        val isPasswordVisible = passwordEditText.inputType == 145
 
         if (isPasswordVisible) {
-            // Hide password
-            passwordEditText.inputType = 129 // TYPE_TEXT_VARIATION_PASSWORD
+            passwordEditText.inputType = 129
             togglePassword.setImageResource(R.drawable.ic_visibility_off)
         } else {
-            // Show password
-            passwordEditText.inputType = 145 // TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            passwordEditText.inputType = 145
             togglePassword.setImageResource(R.drawable.ic_visibility)
         }
 
-        // Move cursor to end
         passwordEditText.setSelection(passwordEditText.text.length)
     }
 
@@ -191,17 +236,16 @@ class LoginActivity : AppCompatActivity() {
             .setTitle("Forgot Password")
             .setMessage("Enter your email to reset password")
             .setView(emailInput)
-            .setPositiveButton("Send Reset Link") { dialog: android.content.DialogInterface, _: Int ->
+            .setPositiveButton("Send Reset Link") { dialog, _ ->
                 val email = emailInput.text.toString().trim()
                 if (email.isNotEmpty()) {
-                    // Implement password reset logic
                     Toast.makeText(this, "Reset link sent to $email", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(this, "Please enter your email", Toast.LENGTH_SHORT).show()
                 }
                 dialog.dismiss()
             }
-            .setNegativeButton("Cancel") { dialog: android.content.DialogInterface, _: Int ->
+            .setNegativeButton("Cancel") { dialog, _ ->
                 dialog.dismiss()
             }
             .show()
@@ -209,7 +253,20 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        // Clear previous results when activity is paused
         userViewModel.clearResults()
+    }
+
+    companion object {
+        const val PREFS_NAME = "LoginPrefs"
+        const val KEY_IS_LOGGED_IN = "isLoggedIn"
+
+        // Static method to clear login session (call this from logout)
+        fun clearLoginSession(context: Context) {
+            val sharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.clear()
+            editor.apply()
+            Log.d("LoginActivity", "Login session cleared")
+        }
     }
 }
