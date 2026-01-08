@@ -139,7 +139,7 @@ Gemini API Key
 ### 🚀 **Quick Setup**
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/yourusername/eduverse.git
+   git clone https://github.com/Farid-xD/EduFlyApp.git
    ```
 2. **Add API Key**
    ```properties
